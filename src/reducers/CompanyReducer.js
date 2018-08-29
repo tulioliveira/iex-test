@@ -1,7 +1,6 @@
 import { LOAD_COMPANY, RESET_COMPANY } from '../actions/types';
 
 const INITIAL_STATE = {
-  notFound: false,
   symbol: '',
   companyName: '',
   exchange: '',
