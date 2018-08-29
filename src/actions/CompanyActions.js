@@ -5,6 +5,7 @@ export const loadCompany = symbol => (dispatch) => {
   axios.get(`https://api.iextrading.com/1.0/stock/${symbol}/company`)
     .then((response) => {
       const { data } = response;
+
       if (data === 'Unknown symbol') {
         dispatch({
           type: LOAD_COMPANY,
@@ -17,6 +18,8 @@ export const loadCompany = symbol => (dispatch) => {
           payload: data
         });
       }
+    }).catch((error) => {
+      console.log(error);
     });
 };
 
