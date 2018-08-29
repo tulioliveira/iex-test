@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import CompanyView from './CompanyView';
 
 const log = (...args) => {
   args.forEach((item) => {
@@ -8,19 +9,20 @@ const log = (...args) => {
   });
 };
 
-const InfoBoard = ({ company, quote }) => (
-  <button type="button" onClick={() => log(company, quote)}>
-    Click to log company & quote
-  </button>
+const InfoBoard = ({ quote }) => (
+  <div>
+    <CompanyView />
+    <button type="button" onClick={() => log(quote)}>
+      Click to log quote
+    </button>
+  </div>
 );
 
 InfoBoard.propTypes = {
-  company: PropTypes.object.isRequired,
   quote: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
-  company: state.company,
   quote: state.quote
 });
 
