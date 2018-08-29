@@ -1,8 +1,8 @@
 import React from 'react';
-import TextInput from './components/TextInput';
+import Search from './containers/Search';
 
 const App = () => (
-  <TextInput placeholder="Search" fluid />
+  <Search />
 );
 
 export default App;
