@@ -1,7 +1,7 @@
 import { LOAD_QUOTE, RESET_QUOTE } from '../actions/types';
 
 const INITIAL_STATE = {
-  latestPrice: null
+  latestPrice: 0
 };
 
 export default (state = INITIAL_STATE, action) => {

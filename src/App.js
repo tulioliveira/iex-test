@@ -1,11 +1,13 @@
 import React from 'react';
 import Search from './containers/Search';
-import InfoBoard from './containers/InfoBoard';
+import CompanyView from './containers/CompanyView';
+import QuoteView from './containers/QuoteView';
 
 const App = () => (
   <div>
     <Search />
-    <InfoBoard />
+    <CompanyView />
+    <QuoteView />
   </div>
 );
 
