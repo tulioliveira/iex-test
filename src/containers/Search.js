@@ -10,11 +10,15 @@ import { colors } from '../providers/styles';
 const SearchIcon = styled(FiSearch)`
   position: absolute;
   top: 1.5rem;
-  right: 2rem;
+  right: 3rem;
   margin-left: 0.5rem;
   font-size: 1rem;
   color: ${colors.secondary};
   cursor: pointer;
+`;
+
+const Form = styled.form`
+  margin: 0.5rem 0rem 0.5rem;
 `;
 
 class Search extends Component {
@@ -44,7 +48,7 @@ class Search extends Component {
     const { symbol } = this.state;
 
     return (
-      <form onSubmit={this.onFormSubmit}>
+      <Form onSubmit={this.onFormSubmit}>
         <TextInput
           value={symbol}
           onChange={this.onSearchChange}
@@ -53,7 +57,7 @@ class Search extends Component {
           fluid
         />
         <SearchIcon onClick={this.onSearch} />
-      </form>
+      </Form>
     );
   }
 }
