@@ -1,7 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Grid, Column, Row } from '../components';
+import {
+  Grid,
+  Column,
+  Row,
+  TagList
+} from '../components';
 
 const CompanyView = (props) => {
   const {
@@ -24,7 +29,9 @@ const CompanyView = (props) => {
           {symbol}
         </Column>
         <Column>
-          {companyName}
+          <span>{companyName}</span>
+          <TagList iteratorKey="Company" data={tags} />
+          <span>{description}</span>
         </Column>
         <Column>
           {exchange}
@@ -36,9 +43,6 @@ const CompanyView = (props) => {
           {website}
         </Column>
         <Column>
-          {description}
-        </Column>
-        <Column>
           {CEO}
         </Column>
         <Column>
@@ -46,9 +50,6 @@ const CompanyView = (props) => {
         </Column>
         <Column>
           {sector}
-        </Column>
-        <Column>
-          {tags}
         </Column>
       </Row>
     </Grid>
