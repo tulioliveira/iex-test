@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { FiSearch } from 'react-icons/fi';
-import { loadCompany } from '../actions/CompanyActions';
+import { loadCompany, loadQuote } from '../actions';
 import TextInput from '../components/TextInput';
 import { colors } from '../providers/styles';
 
@@ -28,11 +28,12 @@ class Search extends Component {
     this.state = { symbol: '' };
   }
 
-  handleChange = (event) => {
+  onSearchChange = (event) => {
     this.setState({ symbol: event.target.value });
   }
 
   onFormSubmit = (event) => {
+    this.onSearch();
     event.preventDefault();
   }
 
@@ -50,7 +51,7 @@ class Search extends Component {
       <form onSubmit={this.onFormSubmit}>
         <TextInput
           value={symbol}
-          onChange={this.handleChange}
+          onChange={this.onSearchChange}
           placeholder="Search"
           hasRightIcon
           fluid
@@ -64,6 +65,7 @@ class Search extends Component {
 const mapDispatchToProps = dispatch => ({
   searchSymbol: (symbol) => {
     dispatch(loadCompany(symbol));
+    dispatch(loadQuote(symbol));
   }
 });
 
