@@ -9,10 +9,6 @@ const colors = {
   green: '#82D173' // Pastel Green
 };
 
-const sizes = {
-  title: '2.5rem',
-};
-
 const alignItemsProperties = [
   'stretch',
   'center',
@@ -33,13 +29,24 @@ const justifyContentProperties = [
   'inherit'
 ];
 
+const textAlignProperties = [
+  'left',
+  'right',
+  'center',
+  'justify',
+  'initial',
+  'inherit'
+];
+
 const isAlignProperty = property => (_.includes(alignItemsProperties, property));
 
 const isJustifyProperty = property => (_.includes(justifyContentProperties, property));
 
+const isTextAlignProperty = property => (_.includes(textAlignProperties, property));
+
 export {
   colors,
-  sizes,
   isAlignProperty,
-  isJustifyProperty
+  isJustifyProperty,
+  isTextAlignProperty
 };
