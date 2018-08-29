@@ -1,6 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import {
+  Grid,
+  Row,
+  Column,
+  Title
+} from '../components';
 
 const QuoteView = (props) => {
   const {
@@ -8,9 +14,13 @@ const QuoteView = (props) => {
   } = props;
 
   return (
-    <div>
-      {latestPrice}
-    </div>
+    <Grid>
+      <Row>
+        <Column>
+          <Title size="3rem">{latestPrice}</Title>
+        </Column>
+      </Row>
+    </Grid>
   );
 };
 

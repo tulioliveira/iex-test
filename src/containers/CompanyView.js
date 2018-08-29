@@ -5,7 +5,11 @@ import {
   Grid,
   Column,
   Row,
-  TagList
+  Link,
+  Paragraph,
+  TagList,
+  Text,
+  Title
 } from '../components';
 
 const CompanyView = (props) => {
@@ -24,32 +28,43 @@ const CompanyView = (props) => {
 
   return (
     <Grid>
-      <Row>
-        <Column>
-          {symbol}
+      <Row alignItems="flex-end">
+        <Column minWidth="350px">
+          <Title inline>
+            {companyName}
+            <Text>{` (${symbol})`}</Text>
+          </Title>
+          <TagList iteratorKey="company" data={tags} />
+          <Link href={website} text={website} openNewTab />
+          <Paragraph textAlign="justify">{description}</Paragraph>
         </Column>
-        <Column>
-          <span>{companyName}</span>
-          <TagList iteratorKey="Company" data={tags} />
-          <span>{description}</span>
-        </Column>
-        <Column>
-          {exchange}
-        </Column>
-        <Column>
-          {industry}
-        </Column>
-        <Column>
-          {website}
-        </Column>
-        <Column>
-          {CEO}
-        </Column>
-        <Column>
-          {issueType}
-        </Column>
-        <Column>
-          {sector}
+        <Column minWidth="360px">
+          <Row>
+            <Column>
+              <Text letterSpacing="0.2rem" margin="0 0 0.5rem">EXCHANGE</Text>
+              <Text bold>{exchange}</Text>
+            </Column>
+            <Column>
+              <Text letterSpacing="0.2rem" margin="0 0 0.5rem">INDUSTRY</Text>
+              <Text bold>{industry}</Text>
+            </Column>
+          </Row>
+          <Row>
+            <Column>
+              <Text letterSpacing="0.2rem" margin="0 0 0.5rem">CEO</Text>
+              <Text bold>{CEO}</Text>
+            </Column>
+            <Column>
+              <Text letterSpacing="0.2rem" margin="0 0 0.5rem">ISSUE TYPE</Text>
+              <Text bold>{issueType}</Text>
+            </Column>
+          </Row>
+          <Row>
+            <Column>
+              <Text letterSpacing="0.2rem" margin="0 0 0.5rem">SECTOR</Text>
+              <Text bold>{sector}</Text>
+            </Column>
+          </Row>
         </Column>
       </Row>
     </Grid>

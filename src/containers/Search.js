@@ -9,8 +9,8 @@ import { colors } from '../providers/styles';
 
 const SearchIcon = styled(FiSearch)`
   position: absolute;
-  top: 1.5rem;
-  right: 3rem;
+  top: 0.5rem;
+  right: 2rem;
   margin-left: 0.5rem;
   font-size: 1rem;
   color: ${colors.secondary};
@@ -18,7 +18,9 @@ const SearchIcon = styled(FiSearch)`
 `;
 
 const Form = styled.form`
+  position: relative;
   margin: 0.5rem 0rem 0.5rem;
+  min-width: 300px;
 `;
 
 class Search extends Component {

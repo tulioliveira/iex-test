@@ -1,6 +1,16 @@
+html {
+  min-width: 300px;
+}
+
 body {
   margin: 1rem;
   padding: 0;
   font-family: 'Open Sans', sans-serif;
   min-height: 100vh;
+}
+
+@media (max-width: 400px) {
+  html {
+    font-size: 0.9em;
+  }
 }

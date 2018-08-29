@@ -6,8 +6,8 @@ import QuoteView from './containers/QuoteView';
 const App = () => (
   <div>
     <Search />
-    <CompanyView />
     <QuoteView />
+    <CompanyView />
   </div>
 );
 
