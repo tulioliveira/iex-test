@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { FiSearch } from 'react-icons/fi';
-import { loadCompany, loadQuote } from '../actions';
+import { loadCompany, loadQuote, loadChart } from '../actions';
 import { TextInput } from '../components';
 import { colors } from '../providers/styles';
 
@@ -68,6 +68,7 @@ const mapDispatchToProps = dispatch => ({
   searchSymbol: (symbol) => {
     dispatch(loadCompany(symbol));
     dispatch(loadQuote(symbol));
+    dispatch(loadChart(symbol, ''));
   }
 });
 
