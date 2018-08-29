@@ -8,7 +8,7 @@ const Tag = styled.span`
   padding: 0.2rem 0.5rem;
   margin: 0.5rem 0.1rem;
   border-radius: 0.5rem;
-  font-size: 0.7rem;
+  font-size: 0.5rem;
   font-weight: bold;
   text-align: center;
   vertical-align: middle;
