@@ -1,5 +1,13 @@
-export Grid from './Grid';
-export Row from './Row';
-export Column from './Column';
-export TextInput from './TextInput';
-export CompanyView from './CompanyView';
+import Grid from './Grid';
+import Row from './Row';
+import Column from './Column';
+import TextInput from './TextInput';
+import CompanyView from './CompanyView';
+
+export {
+  Grid,
+  Row,
+  Column,
+  TextInput,
+  CompanyView
+};
