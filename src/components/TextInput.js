@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import { colors } from '../providers/styles';
 
 const Input = styled.input`
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 1rem 0.5rem 1rem;
   margin: 1rem;
   font-size: 1rem;
   color: ${colors.primary};
@@ -11,7 +11,10 @@ const Input = styled.input`
   border: none;
   border-radius: 5rem;
   ${props => props.fluid && css`
-    width: calc(100% - 4rem);
+    width: calc(100% - 5rem);
+  `}
+  ${props => props.hasRightIcon && css`
+    padding: 0.5rem 2rem 0.5rem 1rem;
   `}
 `;
 
