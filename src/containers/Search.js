@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import styled from 'styled-components';
 import { FiSearch } from 'react-icons/fi';
 import { loadCompany, loadQuote } from '../actions';
-import TextInput from '../components/TextInput';
+import { TextInput } from '../components';
 import { colors } from '../providers/styles';
 
 const SearchIcon = styled(FiSearch)`
@@ -18,14 +18,10 @@ const SearchIcon = styled(FiSearch)`
 `;
 
 class Search extends Component {
+  state = { symbol: '' }
+
   static propTypes = {
     searchSymbol: PropTypes.func.isRequired
-  }
-
-  constructor(props) {
-    super(props);
-
-    this.state = { symbol: '' };
   }
 
   onSearchChange = (event) => {
