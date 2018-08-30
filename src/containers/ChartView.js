@@ -57,8 +57,8 @@ const ChartView = (props) => {
             dataKey="close"
             stroke={colors.secondary}
           />
-          <XAxis minTickGap={20} dataKey="label" />
-          <YAxis domain={['auto', 'auto']} />
+          <XAxis height={40} tickMargin={10} minTickGap={20} dataKey="label" />
+          <YAxis width={40} tickMargin={10} domain={['auto', 'auto']} />
           <Tooltip separator="" />
         </LineChart>
       );
