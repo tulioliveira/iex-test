@@ -7,7 +7,8 @@ import {
   startLoading,
   loadCompany,
   loadQuote,
-  loadChart
+  loadChart,
+  resetStatus
 } from '../actions';
 import { TextInput } from '../components';
 import { colors } from '../providers/styles';
@@ -71,10 +72,15 @@ class Search extends Component {
 
 const mapDispatchToProps = dispatch => ({
   searchSymbol: (symbol) => {
-    dispatch(startLoading());
-    dispatch(loadCompany(symbol));
-    dispatch(loadQuote(symbol));
-    dispatch(loadChart(symbol, 'ytd'));
+    if (symbol.length > 0) {
+      dispatch(startLoading());
+      dispatch(loadCompany(symbol));
+      dispatch(loadQuote(symbol));
+      dispatch(loadChart(symbol, 'ytd'));
+    }
+    else {
+      dispatch(resetStatus());
+    }
   }
 });
 

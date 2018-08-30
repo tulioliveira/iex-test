@@ -5,7 +5,9 @@ import _ from 'lodash';
 import CompanyView from './CompanyView';
 import QuoteView from './QuoteView';
 import ChartView from './ChartView';
-import { Row } from '../components';
+import { Card, Row, Spinner } from '../components';
+
+const homeMessage = "Use the search input to find stock information about a company by entering it's symbol";
 
 const Content = (props) => {
   const {
@@ -17,14 +19,14 @@ const Content = (props) => {
   if (initial) {
     return (
       <Row justifyContent="center">
-        Estado Inicial
+        <Card>{homeMessage}</Card>
       </Row>
     );
   }
   if (error.length > 0) {
     return (
       <Row justifyContent="center">
-        {error}
+        <Card error>{error}</Card>
       </Row>
     );
   }
@@ -39,7 +41,7 @@ const Content = (props) => {
   }
   return (
     <Row justifyContent="center">
-      Carregando
+      <Spinner />
     </Row>
   );
 };
