@@ -68,7 +68,7 @@ const mapDispatchToProps = dispatch => ({
   searchSymbol: (symbol) => {
     dispatch(loadCompany(symbol));
     dispatch(loadQuote(symbol));
-    dispatch(loadChart(symbol, ''));
+    dispatch(loadChart(symbol, 'ytd'));
   }
 });
 

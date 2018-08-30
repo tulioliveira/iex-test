@@ -7,7 +7,6 @@ export const loadChart = (symbol, range) => (dispatch) => {
   if (typeof symbol === 'string' && symbol.length > 0) {
     axios.get(`https://api.iextrading.com/1.0/stock/${symbol}/chart/${range}`)
       .then((response) => {
-        console.log(response.data);
         dispatch({
           type: LOAD_CHART,
           payload: { data: response.data, selectedRange: range }

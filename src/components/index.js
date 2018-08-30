@@ -1,6 +1,7 @@
 import Grid from './Grid';
 import Row from './Row';
 import Column from './Column';
+import Nav from './Nav';
 import Link from './Link';
 import Paragraph from './Paragraph';
 import Tag from './Tag';
@@ -14,6 +15,7 @@ export {
   Row,
   Column,
   Link,
+  Nav,
   Paragraph,
   Tag,
   TagList,

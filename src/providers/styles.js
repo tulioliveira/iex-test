@@ -2,9 +2,10 @@ import _ from 'lodash';
 
 const colors = {
   primary: '#343434', // Jet
-  secondary: '#2F3061', // Deep Koamaru
+  secondary: '#8884d8', // Deep Koamaru
   white: '#f7fbff', // Mint Cream
   gray: '#e4e5e6', // Shadow Blue
+  darkGray: '#c3cdd7', // Shadow Blue
   red: '#C14953', // Bittersweet Shimmer
   green: '#82D173' // Pastel Green
 };
