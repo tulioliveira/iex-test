@@ -1,5 +1,5 @@
 import React from 'react';
-import { mount } from 'enzyme';
+import { mount, render } from 'enzyme';
 import configureMockStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import Search from './Search';
@@ -12,39 +12,15 @@ import {
 
 const mockStore = configureMockStore([thunk]);
 
-describe('authenticate action', () => {
+describe('Search Container Testing', () => {
   const env = { store: null };
   beforeEach(() => {
-    env.store = mockStore({
-      quote: {
-        latestPrice: 0
-      },
-      company: {
-        symbol: '',
-        companyName: '',
-        exchange: '',
-        industry: '',
-        website: '',
-        description: '',
-        CEO: '',
-        issueType: '',
-        sector: '',
-        tags: []
-      },
-      chart: {
-        data: [],
-        selectedRange: ''
-      },
-      status: {
-        initial: true,
-        loaded: {
-          quote: false,
-          company: false,
-          chart: false
-        },
-        error: ''
-      }
-    });
+    env.store = mockStore({});
+  });
+
+  it('renders without crashing', () => {
+    const { store } = env;
+    render(<Search store={store} />);
   });
 
   it('Should find an input child', () => {
