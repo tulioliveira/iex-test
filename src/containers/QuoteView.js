@@ -8,6 +8,9 @@ import {
   Title
 } from '../components';
 
+/**
+ * Quote container, responsible for rendering the latest price
+ */
 const QuoteView = (props) => {
   const {
     latestPrice
@@ -25,6 +28,9 @@ const QuoteView = (props) => {
 };
 
 QuoteView.propTypes = {
+  /**
+   * Stock quote's latest price
+   */
   latestPrice: PropTypes.number.isRequired,
 };
 

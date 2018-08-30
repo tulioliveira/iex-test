@@ -12,6 +12,9 @@ import {
   Title
 } from '../components';
 
+/**
+ * Company container, responsible for rendering the company data
+ */
 const CompanyView = (props) => {
   const {
     symbol,
@@ -72,15 +75,45 @@ const CompanyView = (props) => {
 };
 
 CompanyView.propTypes = {
+  /**
+   * Company symbol
+   */
   symbol: PropTypes.string.isRequired,
+  /**
+   * Company name
+   */
   companyName: PropTypes.string.isRequired,
+  /**
+   * Company exchange
+   */
   exchange: PropTypes.string.isRequired,
+  /**
+   * Company industry
+   */
   industry: PropTypes.string.isRequired,
+  /**
+   * Company website
+   */
   website: PropTypes.string.isRequired,
+  /**
+   * Brief company description
+   */
   description: PropTypes.string.isRequired,
+  /**
+   * Company CEO
+   */
   CEO: PropTypes.string.isRequired,
+  /**
+   * Company Issue Type
+   */
   issueType: PropTypes.string.isRequired,
+  /**
+   * Activity Sector
+   */
   sector: PropTypes.string.isRequired,
+  /**
+   * Company associated tags
+   */
   tags: PropTypes.array.isRequired
 };
 

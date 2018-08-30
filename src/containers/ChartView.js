@@ -24,6 +24,10 @@ const chartMargin = {
   bottom: 0
 };
 
+/**
+ * Chart container, responsible for rendering the chart and it's control navs,
+ * used to set the time range of the data retrieved from the IEX API
+ */
 const ChartView = (props) => {
   const {
     data,
@@ -32,6 +36,16 @@ const ChartView = (props) => {
     changeChartRange
   } = props;
 
+  /**
+   * Available chart data time ranges
+   */
+  const ranges = ['1d', '1m', '3m', '6m', 'ytd', '1y', '2y', '5y'];
+
+  /**
+   * Render the chart if data has been retrieved
+   * @param {array} data - The chart dataset
+   * @return {Object} - The Chart JSX Component
+   */
   const renderChart = (data) => {
     if (data.length > 0) {
       return (
@@ -52,29 +66,56 @@ const ChartView = (props) => {
     return (<div />);
   };
 
+  /**
+   * Check if nav range is equal to the selected range
+   * @param {string} range
+   * @return {boolean}
+   */
+  const isCurrentRange = range => (selectedRange === range);
+
+  /**
+   * Render the avaliable ranges as navs
+   * @return {boolean}
+   * @return {array} - The Nav JSX Component array
+   */
+  const renderRangeNavs = () => ranges.map(item => (
+    <Nav
+      onClick={changeChartRange(symbol, item)}
+      isActive={isCurrentRange(item)}
+      key={`chartRangeNav${item}`}
+    >
+      {item.toUpperCase()}
+    </Nav>
+  ));
+
   return (
     <Grid>
       <ResponsiveContainer width="100%" height={200}>
         {renderChart(data)}
       </ResponsiveContainer>
       <Row justifyContent="center">
-        <Nav onClick={changeChartRange(symbol, '1d')} isActive={selectedRange === '1d'}>1D</Nav>
-        <Nav onClick={changeChartRange(symbol, '1m')} isActive={selectedRange === '1m'}>1M</Nav>
-        <Nav onClick={changeChartRange(symbol, '3m')} isActive={selectedRange === '3m'}>3M</Nav>
-        <Nav onClick={changeChartRange(symbol, '6m')} isActive={selectedRange === '6m'}>6M</Nav>
-        <Nav onClick={changeChartRange(symbol, 'ytd')} isActive={selectedRange === 'ytd'}>YTD</Nav>
-        <Nav onClick={changeChartRange(symbol, '1y')} isActive={selectedRange === '1y'}>1Y</Nav>
-        <Nav onClick={changeChartRange(symbol, '2y')} isActive={selectedRange === '2y'}>2Y</Nav>
-        <Nav onClick={changeChartRange(symbol, '5y')} isActive={selectedRange === '5y'}>5Y</Nav>
+        {renderRangeNavs()}
       </Row>
     </Grid>
   );
 };
 
 ChartView.propTypes = {
+  /**
+   * Chart data retrieved from the IEX API
+   */
   data: PropTypes.array.isRequired,
+  /**
+   * Data time interval
+   */
   selectedRange: PropTypes.string,
+  /**
+   * Company symbol
+   */
   symbol: PropTypes.string.isRequired,
+  /**
+   * Dispatch range changes to Redux, defined by mapDispatchToProps
+   */
   changeChartRange: PropTypes.func.isRequired,
 };
 
