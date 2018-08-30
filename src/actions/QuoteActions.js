@@ -15,7 +15,7 @@ export const loadQuote = symbol => (dispatch) => {
         dispatch(finishQuote());
       }).catch((error) => {
         console.log(error);
-        dispatch(throwError());
+        dispatch(throwError('Sorry, couldn\'t retrieve symbol data'));
       });
   }
   else {

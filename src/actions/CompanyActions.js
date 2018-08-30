@@ -15,7 +15,7 @@ export const loadCompany = symbol => (dispatch) => {
         dispatch(finishCompany());
       }).catch((error) => {
         console.log(error);
-        dispatch(throwError());
+        dispatch(throwError('Sorry, couldn\'t retrieve symbol data'));
       });
   }
   else {

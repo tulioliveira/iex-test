@@ -15,6 +15,6 @@ export const finishCompany = () => ({ type: FINISH_COMPANY });
 
 export const finishChart = () => ({ type: FINISH_CHART });
 
-export const throwError = () => ({ type: THROW_ERROR });
+export const throwError = payload => ({ type: THROW_ERROR, payload });
 
 export const resetStatus = () => ({ type: RESET_STATUS });
