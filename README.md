@@ -1,5 +1,9 @@
 
+# IEX Trading API Test
+
 ![Home Page](https://imgur.com/OODAVwo.png)
+
+This app utilizes the [IEX Trading API](https://iextrading.com/developer/docs/) to fetch stock data about a company, queried by it's symbol.
 
 ## Available Scripts
 
