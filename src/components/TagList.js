@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Tag from './Tag';
 
+/**
+ * TagList UI Component, used for rendering data array as tags
+ */
 const TagList = ({ iteratorKey, data }) => (
   <div>
     {data.map((tag, index) => (
@@ -13,7 +16,13 @@ const TagList = ({ iteratorKey, data }) => (
 );
 
 TagList.propTypes = {
+  /**
+   * Base iterator key for rendering array using the "map" function
+   */
   iteratorKey: PropTypes.string.isRequired,
+  /**
+   * Data to be displayed
+   */
   data: PropTypes.array.isRequired
 };
 

@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { colors } from '../providers/styles';
 
+/**
+ * Tag UI Component
+ */
 const Tag = styled.span`
   display: inline-block;
   background-color: ${colors.secondary};
