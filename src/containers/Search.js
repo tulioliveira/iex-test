@@ -76,7 +76,7 @@ const mapDispatchToProps = dispatch => ({
       dispatch(startLoading());
       dispatch(loadCompany(symbol));
       dispatch(loadQuote(symbol));
-      dispatch(loadChart(symbol, 'ytd'));
+      dispatch(loadChart(symbol, '1d'));
     }
     else {
       dispatch(resetStatus());
