@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Text from './Text';
+import Title from './Title';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Text>Testing Text Element</Text>, div);
+  ReactDOM.render(<Title inline>Testing Title Element</Title>, div);
   ReactDOM.unmountComponentAtNode(div);
 });
