@@ -15,6 +15,7 @@ import {
   Nav
 } from '../components';
 import { colors } from '../providers/styles';
+import { loadChart } from '../actions/ChartActions';
 
 const chartMargin = {
   top: 20,
@@ -26,7 +27,9 @@ const chartMargin = {
 const ChartView = (props) => {
   const {
     data,
-    selectedRange
+    selectedRange,
+    symbol,
+    changeChartRange
   } = props;
 
   const renderChart = (data) => {
@@ -54,15 +57,15 @@ const ChartView = (props) => {
       <ResponsiveContainer width="100%" height={200}>
         {renderChart(data)}
       </ResponsiveContainer>
-      <Row>
-        <Nav isActive={selectedRange === '1d'}>1D</Nav>
-        <Nav isActive={selectedRange === '1m'}>1M</Nav>
-        <Nav isActive={selectedRange === '3m'}>3M</Nav>
-        <Nav isActive={selectedRange === '6m'}>6M</Nav>
-        <Nav isActive={selectedRange === 'ytd'}>YTD</Nav>
-        <Nav isActive={selectedRange === '1y'}>1Y</Nav>
-        <Nav isActive={selectedRange === '2y'}>2Y</Nav>
-        <Nav isActive={selectedRange === '5y'}>5Y</Nav>
+      <Row justifyContent="center">
+        <Nav onClick={changeChartRange(symbol, '1d')} isActive={selectedRange === '1d'}>1D</Nav>
+        <Nav onClick={changeChartRange(symbol, '1m')} isActive={selectedRange === '1m'}>1M</Nav>
+        <Nav onClick={changeChartRange(symbol, '3m')} isActive={selectedRange === '3m'}>3M</Nav>
+        <Nav onClick={changeChartRange(symbol, '6m')} isActive={selectedRange === '6m'}>6M</Nav>
+        <Nav onClick={changeChartRange(symbol, 'ytd')} isActive={selectedRange === 'ytd'}>YTD</Nav>
+        <Nav onClick={changeChartRange(symbol, '1y')} isActive={selectedRange === '1y'}>1Y</Nav>
+        <Nav onClick={changeChartRange(symbol, '2y')} isActive={selectedRange === '2y'}>2Y</Nav>
+        <Nav onClick={changeChartRange(symbol, '5y')} isActive={selectedRange === '5y'}>5Y</Nav>
       </Row>
     </Grid>
   );
@@ -70,7 +73,9 @@ const ChartView = (props) => {
 
 ChartView.propTypes = {
   data: PropTypes.array.isRequired,
-  selectedRange: PropTypes.string
+  selectedRange: PropTypes.string,
+  symbol: PropTypes.string.isRequired,
+  changeChartRange: PropTypes.func.isRequired,
 };
 
 ChartView.defaultProps = {
@@ -78,7 +83,14 @@ ChartView.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-  ...state.chart
+  ...state.chart,
+  symbol: state.company.symbol
 });
 
-export default connect(mapStateToProps)(ChartView);
+const mapDispatchToProps = dispatch => ({
+  changeChartRange: (symbol, range) => () => {
+    dispatch(loadChart(symbol, range));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChartView);

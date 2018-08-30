@@ -4,7 +4,7 @@ import { colors } from '../providers/styles';
 const Nav = styled.button`
   cursor: pointer;
   padding: 0.5rem 1rem 0.5rem 1rem;
-  margin: 0rem 1rem;
+  margin: 0.5rem 1rem;
   font-size: 1rem;
   color: ${colors.primary};
   background: ${colors.gray};
