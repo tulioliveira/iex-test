@@ -5,6 +5,7 @@ import _ from 'lodash';
 import CompanyView from './CompanyView';
 import QuoteView from './QuoteView';
 import ChartView from './ChartView';
+import { Row } from '../components';
 
 const Content = (props) => {
   const {
@@ -15,16 +16,16 @@ const Content = (props) => {
 
   if (initial) {
     return (
-      <div>
+      <Row justifyContent="center">
         Estado Inicial
-      </div>
+      </Row>
     );
   }
   if (error.length > 0) {
     return (
-      <div>
+      <Row justifyContent="center">
         {error}
-      </div>
+      </Row>
     );
   }
   if (_.every(loaded)) {
@@ -37,9 +38,9 @@ const Content = (props) => {
     );
   }
   return (
-    <div>
+    <Row justifyContent="center">
       Carregando
-    </div>
+    </Row>
   );
 };
 
