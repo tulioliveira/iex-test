@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { LOAD_QUOTE, RESET_QUOTE } from './types';
+import { finishQuote, throwError } from './StatusActions';
 
 export const resetQuote = () => ({ type: RESET_QUOTE });
 
@@ -11,8 +12,10 @@ export const loadQuote = symbol => (dispatch) => {
           type: LOAD_QUOTE,
           payload: { latestPrice: response.data.latestPrice }
         });
+        dispatch(finishQuote());
       }).catch((error) => {
         console.log(error);
+        dispatch(throwError());
       });
   }
   else {

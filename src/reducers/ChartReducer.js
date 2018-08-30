@@ -2,7 +2,7 @@ import { LOAD_CHART, RESET_CHART } from '../actions/types';
 
 const INITIAL_STATE = {
   data: [],
-  selectedRange: '1d'
+  selectedRange: ''
 };
 
 export default (state = INITIAL_STATE, action) => {

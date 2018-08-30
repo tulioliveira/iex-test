@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { LOAD_CHART, RESET_CHART } from './types';
+import { finishChart, throwError } from './StatusActions';
 
 export const resetChart = () => ({ type: RESET_CHART });
 
@@ -11,8 +12,10 @@ export const loadChart = (symbol, range) => (dispatch) => {
           type: LOAD_CHART,
           payload: { data: response.data, selectedRange: range }
         });
+        dispatch(finishChart());
       }).catch((error) => {
         console.log(error);
+        dispatch(throwError('Sorry, couldn\'t retrieve symbol data'));
       });
   }
   else {
